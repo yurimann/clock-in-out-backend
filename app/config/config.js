@@ -5,6 +5,11 @@ const config = () => {
             host: '127.0.0.1',
             port: '8080'
         },
+        corsOptions: {
+            origin: '*',
+            optionsSuccessStatus: 200,
+            exposedHeaders: 'X-JSON'
+        },
         db: {
             host: process.env.DATABASE_HOST || 'localhost',
             database: process.env.DATABASE_NAME || 'himama',
