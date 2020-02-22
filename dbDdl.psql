@@ -1,0 +1,31 @@
+create SEQUENCE  users_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1;
+
+  create table users(
+    user_id bigint NOT NULL DEFAULT nextval('users_id_seq'::regclass) constraint users_pkey
+            primary key,
+    first_name text,
+    last_name text,
+    email text,
+    password text
+);
+
+CREATE SEQUENCE  clocking_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1;
+
+create table clocking(
+     clocking_id bigint NOT NULL DEFAULT nextval('clocking_seq'::regclass) constraint clocking_pkey primary key,
+    user_id  bigint
+        constraint fk_users
+            references users,
+  clock_in text,
+  clock_out text
+);
