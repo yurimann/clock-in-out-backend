@@ -7,7 +7,7 @@ const userGateway = async (data) => {
   const valuesList = `('${data.firstName}' , '${data.lastName}', '${data.email}', '${hashedPassword}')`
 
   if (data.functionToRun === 'addUser'){
-  const queryString = `INSERT INTO users(first_name, last_name, user_name, email, password) VALUES  ${valuesList} RETURNING *`
+  const queryString = `INSERT INTO users(first_name, last_name, email, password) VALUES  ${valuesList} RETURNING *`
 
   return client.query(queryString, []).then((res) => {
     return {
