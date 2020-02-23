@@ -34,4 +34,4 @@ npm install
 
 4. Run the application by doing `npm start`
 
-5. Import hiMama.postman_collection.json into postman to make API calls to the back end
+5. Import `hiMama.postman_collection.json` into postman to make API calls to the back end
