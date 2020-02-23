@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "457f9c9e-19e7-40dd-a1e4-7db0ae1122e5",
+		"name": "hiMama",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"Test\",\n\t\"lastName\": \"Account\",\n\t\"email\": \"challenge@himama.com\",\n\t\"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://arcane-wildwood-70873.herokuapp.com/addUser",
+					"protocol": "https",
+					"host": [
+						"arcane-wildwood-70873",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"addUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log In",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"test@gmail.com\",\n\t\"password\": \"pw\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://arcane-wildwood-70873.herokuapp.com/login",
+					"protocol": "https",
+					"host": [
+						"arcane-wildwood-70873",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Logs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"First\",\n\t\"lastName\": \"Last\",\n\t\"email\": \"firstlast@gmail.com\",\n\t\"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://arcane-wildwood-70873.herokuapp.com/userLogs?userId=5",
+					"protocol": "https",
+					"host": [
+						"arcane-wildwood-70873",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"userLogs"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clocking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://arcane-wildwood-70873.herokuapp.com/clock",
+					"protocol": "https",
+					"host": [
+						"arcane-wildwood-70873",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"clock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Entry",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"clockingId\": 2,\n\t\"clock_in\": \"'Sun Feb 23 2020 10:04:03 GMT-0500 (EST)'\",\n\t\"clock_out\": \"Sun Feb 23 2020 12:04:03 GMT-0500 (EST)\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://arcane-wildwood-70873.herokuapp.com/editEntry",
+					"protocol": "https",
+					"host": [
+						"arcane-wildwood-70873",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"editEntry"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
