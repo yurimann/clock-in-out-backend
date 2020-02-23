@@ -41,7 +41,15 @@ const clockingGateway = async (data) => {
   }
 
   const editEntry = async (data) => {
-    const clockQueryString = `UPDATE clocking SET ${data.field}='${data.updatedValue}' where clocking_id='${data.clockingId}' RETURNING *`
+    /*
+    Expected JSON Format:
+    {
+      clocking_id: 123,
+      clock_in:'Sun Feb 23 2020 10:12:29 GMT-0500 (EST)',
+      clock_out:'Sun Feb 23 2020 10:12:29 GMT-0500 (EST)'
+    }
+    */
+    const clockQueryString = `UPDATE clocking SET clock_in='${data.clock_in}', clock_out='${data.clock_out}' where clocking_id='${data.clockingId}' RETURNING *`
     return await client.query(clockQueryString, []).then((res) => {
       return {
         message: 'Successfully updated',
