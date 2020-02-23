@@ -8,7 +8,7 @@ const usersController = async (args) => {
     const retrievedUser = await userGateway(args)
 
     const matchedPasswords = args.password === retrievedUser.data.password
-    return { message: 'Successfully evaluated results', data: matchedPasswords }
+    return { userId: retrievedUser.data.user_id, message: 'Successfully evaluated results', data: matchedPasswords }
   }
 }
 

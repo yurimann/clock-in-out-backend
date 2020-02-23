@@ -19,7 +19,6 @@ router.get('/health', (req, res) => {
 })
 
 router.get('/userLogs', async(req, res) => {
-    console.log(req.query)
     const userLogs = await clockingController({userId: req.query.userId, functionToRun: 'userLogs'})
     res.status(200).send({
         message: userLogs.message,
@@ -40,12 +39,9 @@ router.post('/addUser', async(req, res) => {
 router.post('/login', async(req, res) => {
     if (req.body !== undefined){
         const userResponse = await usersController({...req.body, functionToRun: 'login'})
-console.log(userResponse)
         if (userResponse.data){
-        res.status(200).send({
-            message: userResponse.message,
-            data: userResponse.data
-        })} else {
+        res.status(200).send(userResponse)} else {
+            console.log(userResponse)
         res.status(401).send({
             message: 'Passwords do not match',
             data: userResponse.data

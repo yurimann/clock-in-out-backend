@@ -25,7 +25,7 @@ const clockingGateway = async (data) => {
     return await client.query(evalInOrOut(), []).then((res) => {
       return {
         message: 'User action successful',
-        data: res.rows
+        data: res.rows[0]
       }
     })
       .catch((err) => {
@@ -61,7 +61,7 @@ const clockingGateway = async (data) => {
   }
 
   const userLogs = async (data) => {
-    const clockQueryString = `SELECT * from clocking where user_id='${data.userId}' ORDER BY clock_in`
+    const clockQueryString = `SELECT * from clocking where user_id='${data.userId}' ORDER BY clock_in DESC LIMIT 20`
     return await client.query(clockQueryString, []).then((res) => {
       return {
         message: 'Successfully retrieved list',
